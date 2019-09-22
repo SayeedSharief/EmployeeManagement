@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ListEmployeeComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private formBuilder: FormBuilder) { }
+  constructor(private httpClient: HttpClient, private formBuilder: FormBuilder, private router: Router) { }
 
   public employeeList;
   public empDetails = false;
@@ -62,6 +63,9 @@ export class ListEmployeeComponent implements OnInit {
     
     this.httpClient.post('http://localhost:3000/updateEmployee', updateObj).subscribe(res => {
       console.log('Updated Successfully, res =',res);
+      this.router.navigate(['/getEmployeed']);
+      window.location.reload();
+      location.reload();
     })
   }
 

@@ -67,11 +67,11 @@ app.get('/getEmployee/:name', (req, res) => {
 
 app.post('/updateEmployee', (req, res) => {
     console.log('Inside update employee, data =', req.body);
-    Employee.updateOne({name: req.body.name}, req.body, (err, res) => {
+    Employee.updateOne({name: req.body.name}, req.body, (err, respnse) => {
         if(err){
             console.log('Error occured!');
         }
-        console.log('Updated Successfully');
+        res.json({'res':'Success'})
     })
 })
 
