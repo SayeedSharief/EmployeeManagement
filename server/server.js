@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors())
 
-const Employee = require('./Employee')
+const Employee = require('./schema/Employee')
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/employee', { useNewUrlParser: true });

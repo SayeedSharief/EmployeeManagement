@@ -1,27 +1,33 @@
 <div class="add-comp">
   <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
+    <div style="font-size: 25px; font-weight: 550;">Enter Employee Details</div>
+    <br />
     <div>
-      <label for="name">
-        Name
+      <label class="form-label" for="name">
+        Name:
       </label>
       <input id="name" type="text" formControlName="name">
     </div>
+    <br />
 
     <div>
-      <label for="dob">
-        D.O.B
+      <label class="form-label" for="dob">
+        D.O.B:
       </label>
       <input id="dob" type="date" formControlName="dob">
     </div>
+    <br />
 
     <div>
-      <label for="salary">
-        Salary
+      <label class="form-label" for="salary">
+        Salary:
       </label>
       <input id="salary" type="number" formControlName="salary">
     </div>
+    <br />
 
+    <div class="form-label" >Skills:</div>
     <div>
       <form #checkboxForm="ngForm" (submit)="onSubmit(checkoutForm.value)">
         <div *ngFor="let item of skillSet">
@@ -30,7 +36,8 @@
             <span innerHTML="{{item.Name}}"></span>
           </label>
         </div>
-        <input type="submit" value="Submit">
+        <br />
+        <input class="submit-button" type="submit" value="Submit">
       </form>
       <!-- <label for="skills">
         Skills

@@ -11,6 +11,7 @@ export class AddEmployeeComponent implements OnInit {
 
 
   ngOnInit() {
+    document.getElementById('home').style.display = 'none';
   }
 
   items;
@@ -26,7 +27,35 @@ export class AddEmployeeComponent implements OnInit {
    {
      Name: "Node",
      Checked: false
-   } ]
+   },
+   {
+    Name: "JavaScript",
+    Checked: false
+  },
+  {
+    Name: "HTML",
+    Checked: false
+  },
+  {
+    Name: "CSS",
+    Checked: false
+  },
+  {
+    Name: "jQuery",
+    Checked: false
+  },
+  {
+    Name: "BootsTrap",
+    Checked: false
+  },
+  {
+    Name: "Java",
+    Checked: false
+  },
+  {
+    Name: "Python",
+    Checked: false
+  } ]
 
   constructor(
     private formBuilder: FormBuilder,

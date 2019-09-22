@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center" class="heading">
   <h1>
-    Welcome to {{ title }}!
+  {{ title }}
   </h1>
 </div>
 <div class="parent">
@@ -19,6 +19,7 @@
     <!-- <button (click)="fun()" routerLink="/getEmployeed" routerLinkActive="active">Press Me</button> -->
   </div>
   <div>
+    <div *ngIf="home" id="home">Welcome</div>
     <router-outlet></router-outlet>
   </div>
 </div>

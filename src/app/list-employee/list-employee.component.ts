@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'app-list-employee',
@@ -8,18 +10,22 @@ import { HttpClient } from '@angular/common/http'
 })
 export class ListEmployeeComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private formBuilder: FormBuilder) { }
 
   public employeeList;
   public empDetails = false;
   public empList = true;
   public employee;
+  checkoutForm;
+
+  public name;
 
   ngOnInit() {
     this.httpClient.get('http://localhost:3000/getEmployees').subscribe( res => {
       console.log(res);
       this.employeeList = res;
     })
+    document.getElementById('home').style.display = 'none';
   }
 
   editEmployee(name){
@@ -38,4 +44,7 @@ export class ListEmployeeComponent implements OnInit {
 
   }
 
+  onSubmit(customerData) {
+    console.log('Data =',this.name)
+  }
 }

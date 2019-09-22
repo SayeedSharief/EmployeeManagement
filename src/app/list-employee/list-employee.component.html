@@ -1,5 +1,5 @@
 <div *ngIf="empList" class="emp-list">
-    <div class="header-text">Employee List</div>
+    <div class="header-text">Employees List</div>
     <br />
     <table id="empTable" style="border-collapse: separate; border-spacing: 0px 0px; width: 80%;">
       <tr>
@@ -7,16 +7,16 @@
         <th>D.O.B</th>
         <th>Salary</th>
         <th>Skills</th>
-        <th>Modify</th>
+        <th style="width: 25%; padding: 1%;">Modify</th>
       </tr>
       <tr *ngFor="let emp of employeeList | paginate: { itemsPerPage: 10, currentPage: p }">
         <td class="name-column"><u>{{emp.name}}</u></td>
         <td>{{emp.dob}}</td>
         <td>{{emp.salary}}</td>
         <td>{{emp.skills}}</td>
-        <td>
-          <button (click)="editEmployee(emp.name)">Edit</button> <br /><br />
-          <button (click)="deleteEmployee(emp.name)">Delete</button>
+        <td style="width: 25%; padding: 1%;">
+          <button class="edit-button" (click)="editEmployee(emp.name)">Edit</button> <br /><br />
+          <button class="delete-button" (click)="deleteEmployee(emp.name)">Delete</button>
 
         </td>
 
@@ -28,11 +28,66 @@
     </table>
   </div>
   <div *ngIf="empDetails" class="emp-details">
-    <div>Employee Details</div>
+    <div style="font-size: 25px;">Employee Details</div>
+    <br />
+<!-- 
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+        <div style="font-size: 25px; font-weight: 550;">Enter Employee Details</div>
+        <br />
+        <div>
+          <label class="form-label" for="name">
+            Name:
+          </label>
+          <input id="name" type="text" value="{{employee.name}}" formControlName="name">
+        </div>
+        <br />
+    
+        <div>
+          <label class="form-label" for="dob">
+            D.O.B:
+          </label>
+          <input id="dob" type="date" value="{{employee.dob}}" formControlName="dob">
+        </div>
+        <br />
+    
+        <div>
+          <label class="form-label" for="salary">
+            Salary:
+          </label>
+          <input id="salary" value="{{employee.salary}}" type="number" formControlName="salary">
+        </div>
+        <br />
+
+        <div>
+            <label class="form-label" for="skills">
+              Skills:
+            </label>
+            <input id="skills" value="{{employee.skills}}" type="number" formControlName="salary">
+          </div>
+          <br /> -->
+    
+        <!-- <div class="form-label" >Skills:</div> -->
+        <!-- <div>
+          <form #checkboxForm="ngForm" (submit)="onSubmit(checkoutForm.value)">
+            <div *ngFor="let item of skillSet">
+              <label>
+                <input  type="checkbox" value="{{item.Id}}" [(ngModel)]="item.Checked" [name]="item.Name"/>
+                <span innerHTML="{{item.Name}}"></span>
+              </label>
+            </div>
+            <br />
+            <input class="submit-button" type="submit" value="Submit">
+          </form>
+        </div>    -->
+        
+        <!-- <input class="submit-button" type="submit" value="Submit">
+        
+      </form> -->
     <div style="display: grid;">
       <div class="empDetail">
         <div>Name</div>
-        <div class="empValue"><input type="text" value="{{employee.name}}"></div>
+        <div  class="empValue"><input type="text" value="{{employee.name}}" ></div>
       </div>
       <br />
 
@@ -52,6 +107,9 @@
         <div>Skills</div>
         <div class="empValue"><input type="text" value="{{employee.skills}}"></div>
       </div>
+      <br />
+
+      <input class="submit-button" type="submit" value="Submit">
       <br />
     </div>
   </div>

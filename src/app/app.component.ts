@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'Employee Management System';
+  public home = true;
 
   constructor(private httpClient: HttpClient){}
 
