@@ -65,6 +65,16 @@ app.get('/getEmployee/:name', (req, res) => {
     res.json({'res':'Success'})
 })
 
+app.post('/updateEmployee', (req, res) => {
+    console.log('Inside update employee, data =', req.body);
+    Employee.updateOne({name: req.body.name}, req.body, (err, res) => {
+        if(err){
+            console.log('Error occured!');
+        }
+        console.log('Updated Successfully');
+    })
+})
+
 app.listen(3000, () => {
     console.log("Express listening on port 3000")
 })

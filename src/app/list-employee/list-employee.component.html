@@ -28,34 +28,34 @@
     </table>
   </div>
   <div *ngIf="empDetails" class="emp-details">
-    <div style="font-size: 25px;">Employee Details</div>
+    <div style="font-size: 25px;">Update Employee Details</div>
     <br />
     <div style="display: grid;">
       <div class="empDetail">
         <div>Name</div>
-        <div  class="empValue"><input type="text" value="{{employee.name}}" ></div>
+        <div  class="empValue"><input [(ngModel)]="empName" name="empName" type="text" value="{{employee.name}}" disabled></div>
       </div>
       <br />
 
       <div class="empDetail">
         <div>D.O.B</div>
-        <div class="empValue"><input type="text" value="{{employee.dob}}"></div>
+        <div class="empValue"><input [(ngModel)]="dob" name="dob" type="text" value="{{employee.dob}}"></div>
       </div>
       <br />
 
       <div class="empDetail">
         <div>Salary</div>
-        <div class="empValue"><input type="text" value="{{employee.salary}}"></div>
+        <div class="empValue"><input [(ngModel)]="salary" name="salary" type="text" value="{{employee.salary}}"></div>
       </div>
       <br />
 
       <div class="empDetail">
         <div>Skills</div>
-        <div class="empValue"><input type="text" value="{{employee.skills}}"></div>
+        <div class="empValue"><input [(ngModel)]="skills" name="skills" type="text" value="{{employee.skills}}"></div>
       </div>
       <br />
 
-      <input class="submit-button" type="submit" value="Submit">
+      <input class="submit-button" (click)="editEmployeeDetail()" type="submit" value="Submit">
       <br />
     </div>
   </div>

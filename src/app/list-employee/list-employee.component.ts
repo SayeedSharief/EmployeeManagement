@@ -18,7 +18,10 @@ export class ListEmployeeComponent implements OnInit {
   public employee;
   checkoutForm;
 
-  public name;
+  public empName;
+  public dob;
+  public salary;
+  public skills;
 
   ngOnInit() {
     this.httpClient.get('http://localhost:3000/getEmployees').subscribe( res => {
@@ -36,6 +39,10 @@ export class ListEmployeeComponent implements OnInit {
       this.employee = res[0];
       this.empList = false;
       this.empDetails = true;
+      this.empName = this.employee.name;
+      this.dob = this.employee.dob;
+      this.salary = this.employee.salary;
+      this.skills = this.employee.skills;
     })
   }
 
@@ -44,7 +51,21 @@ export class ListEmployeeComponent implements OnInit {
 
   }
 
+  editEmployeeDetail(){
+    var updateObj = {
+      'name':this.empName,
+      'dob': this.dob,
+      'salary': this.salary,
+      'skills': this.skills.split(',')
+    }
+    console.log('update Obj =',updateObj);
+    
+    this.httpClient.post('http://localhost:3000/updateEmployee', updateObj).subscribe(res => {
+      console.log('Updated Successfully, res =',res);
+    })
+  }
+
   onSubmit(customerData) {
-    console.log('Data =',this.name)
+
   }
 }
