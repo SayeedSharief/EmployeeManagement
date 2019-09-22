@@ -1,0 +1,46 @@
+<div>
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+    <div>
+      <label for="name">
+        Name
+      </label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+
+    <div>
+      <label for="dob">
+        D.O.B
+      </label>
+      <input id="dob" type="date" formControlName="dob">
+    </div>
+
+    <div>
+      <label for="salary">
+        Salary
+      </label>
+      <input id="salary" type="number" formControlName="salary">
+    </div>
+
+    <div>
+      <form #checkboxForm="ngForm" (submit)="onSubmit(checkoutForm.value)">
+        <div *ngFor="let item of skillSet">
+          <label>
+            <input  type="checkbox" value="{{item.Id}}" [(ngModel)]="item.Checked" [name]="item.Name"/>
+            <span innerHTML="{{item.Name}}"></span>
+          </label>
+        </div>
+        <input type="submit" value="Submit">
+      </form>
+      <!-- <label for="skills">
+        Skills
+      </label><br />
+      <input id="skills" type="checkbox" formControlName="skills" value="Angular">Angular<br />
+      <input id="skills" type="checkbox" formControlName="skills" value="React">React<br /> -->
+
+    </div>
+
+    <!-- <button class="button" type="submit">Purchase</button> -->
+
+  </form>
+</div>
