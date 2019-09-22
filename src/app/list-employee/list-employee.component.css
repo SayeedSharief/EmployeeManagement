@@ -1,0 +1,21 @@
+#empTable tr:nth-child(even){
+    background-color: #B3DBE9;
+}
+#empTable tr:nth-child(odd){
+    background-color: #EEF7FA;
+}
+#empTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #0572d9;;
+    color: white;
+    border-right: thin solid white;
+    font-weight: 550;
+}
+#empTable td{
+    padding: 1%;
+}
+.name-column{
+    text-align: center;
+}

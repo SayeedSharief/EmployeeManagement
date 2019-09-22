@@ -28,7 +28,7 @@ app.use(cors())
 const Employee = require('./Employee')
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/employee', { useNewUrlParser: true });
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -37,25 +37,28 @@ db.once('open', function () {
     console.log('WE are connected')
 });
 
-var emp = new Employee({
-    id: 1,
-    name: 'uzair',
-    // dob: { type: Date, default: Date.now },
-    salary: 50000,
-    skills: ['angular', 'node']
-    // img: { data: Buffer, contentType: String }
-})
-
-
-
-
-
+// var emp = new Employee({
+//     id: 1,
+//     name: 'uzair',
+//     // dob: { type: Date, default: Date.now },
+//     salary: 50000,
+//     skills: ['angular', 'node']
+//     // img: { data: Buffer, contentType: String }
+// })
 
 app.get('/getEmployees', (req, res) => {
     Employee.find(function (err, employees) {
         if (err) return console.error(err);
         console.log('Employee =', employees);
         res.json(employees)
+    })
+})
+
+app.get('/getEmployee/:name', (req, res) => {
+    Employee.find({"name": req.params.name}, function (err, employee) {
+        if (err) return console.error(err);
+        console.log('Employee =', employee);
+        res.json(employee)
     })
 })
 

@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 const appRoutes: Routes = [
   {
@@ -19,6 +21,11 @@ const appRoutes: Routes = [
     path: 'addEmployeed',
     component: AddEmployeeComponent,
     data: { title: 'Add Employee' }
+  },
+  {
+    path: 'editEmployee',
+    component: EditEmployeeComponent,
+    data: { title: 'Edit Employee' }
   },
   { path: '',
     redirectTo: '/',
@@ -42,7 +49,8 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

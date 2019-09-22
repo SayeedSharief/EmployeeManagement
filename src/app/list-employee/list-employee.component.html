@@ -1,5 +1,36 @@
-<div>
-  <ul>
-    <li *ngFor="let emp of employeeList">{{emp.name}}</li>
-  </ul>
+<div *ngIf="empList">
+  <table id="empTable" style="border-collapse: separate; border-spacing: 0px 0px; width: 80%;">
+    <tr>
+        <th>Employee Name</th>
+        <th>D.O.B</th>
+        <th>Salary</th>
+        <th>Skills</th>
+        <th>Modify</th>
+    </tr>
+    <tr *ngFor="let emp of employeeList | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td class="name-column"><u>{{emp.name}}</u></td>
+        <td style="border: thin solid lightgray; text-align: center;">{{emp.dob}}</td>
+        <td style="border: thin solid lightgray; text-align: center;">{{emp.salary}}</td>
+        <td style="border: thin solid lightgray; text-align: center;">{{emp.skills}}</td>
+        <td style="border: thin solid lightgray; text-align: center;">
+          <button (click)="editEmployee(emp.name)" routerLink="/editEmployee">Edit</button>
+          <button (click)="deleteEmployee(emp.name)">Delete</button>
+
+        </td>
+
+    </tr>
+    <!-- <div style="float: right; margin-right: -147%;"> -->
+    <div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</table>
+</div>
+<div *ngIf="empDetails">
+  <div>Employee Details</div>
+  <div>
+    <div>
+      <div>Name</div>
+      <div><input type="text">{{employee.name}}</div>
+    </div>
+  </div>
 </div>
