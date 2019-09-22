@@ -1,3 +1,20 @@
 .parent{
     display: inline-flex;
 }
+
+.heading{
+    text-align: center; 
+    width: 100%;
+    background-color: #669bca;
+    margin-top: -21px;
+    color: #f7f4f4;
+    padding: 0.5% 0%;
+}
+
+.nav-drawer{
+    min-width: 18% !important;
+    background-color: #d5d7da;
+    position: absolute;
+    top: 12.2%;
+    height: 87%;
+}

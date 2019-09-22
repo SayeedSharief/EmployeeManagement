@@ -1,3 +1,6 @@
+#empTable{
+    min-width: 100%;
+}
 #empTable tr:nth-child(even){
     background-color: #B3DBE9;
 }
@@ -12,10 +15,37 @@
     color: white;
     border-right: thin solid white;
     font-weight: 550;
+    min-width: 20%;
 }
 #empTable td{
     padding: 1%;
+    min-width: 20%;
+    border: thin solid lightgray; 
+    text-align: center;
 }
 .name-column{
     text-align: center;
+}
+.empDetail{
+    display: inline-flex;
+    width: 109px;
+}
+.empValue{
+    margin-left: 23%;
+
+}
+.emp-list{
+    margin-left: 40%;
+    margin-top: 6%;
+    width: 100%;
+}
+.header-text{
+    font-size: 26px;
+    text-align: center;
+    font-weight: 550;
+}
+.emp-details{
+    position: absolute;
+    top: 20%;
+    left: 22%;
 }

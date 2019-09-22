@@ -13,6 +13,7 @@ export class ListEmployeeComponent implements OnInit {
   public employeeList;
   public empDetails = false;
   public empList = true;
+  public employee;
 
   ngOnInit() {
     this.httpClient.get('http://localhost:3000/getEmployees').subscribe( res => {
@@ -23,6 +24,13 @@ export class ListEmployeeComponent implements OnInit {
 
   editEmployee(name){
     console.log('Edit Employee, name =', name)
+    var url = 'http://localhost:3000/getEmployee/' + name;
+    this.httpClient.get(url).subscribe(res => {
+      console.log('res =', res);
+      this.employee = res[0];
+      this.empList = false;
+      this.empDetails = true;
+    })
   }
 
   deleteEmployee(name){

@@ -1,36 +1,57 @@
-<div *ngIf="empList">
-  <table id="empTable" style="border-collapse: separate; border-spacing: 0px 0px; width: 80%;">
-    <tr>
+<div *ngIf="empList" class="emp-list">
+    <div class="header-text">Employee List</div>
+    <br />
+    <table id="empTable" style="border-collapse: separate; border-spacing: 0px 0px; width: 80%;">
+      <tr>
         <th>Employee Name</th>
         <th>D.O.B</th>
         <th>Salary</th>
         <th>Skills</th>
         <th>Modify</th>
-    </tr>
-    <tr *ngFor="let emp of employeeList | paginate: { itemsPerPage: 10, currentPage: p }">
+      </tr>
+      <tr *ngFor="let emp of employeeList | paginate: { itemsPerPage: 10, currentPage: p }">
         <td class="name-column"><u>{{emp.name}}</u></td>
-        <td style="border: thin solid lightgray; text-align: center;">{{emp.dob}}</td>
-        <td style="border: thin solid lightgray; text-align: center;">{{emp.salary}}</td>
-        <td style="border: thin solid lightgray; text-align: center;">{{emp.skills}}</td>
-        <td style="border: thin solid lightgray; text-align: center;">
-          <button (click)="editEmployee(emp.name)" routerLink="/editEmployee">Edit</button>
+        <td>{{emp.dob}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.skills}}</td>
+        <td>
+          <button (click)="editEmployee(emp.name)">Edit</button> <br /><br />
           <button (click)="deleteEmployee(emp.name)">Delete</button>
 
         </td>
 
-    </tr>
-    <!-- <div style="float: right; margin-right: -147%;"> -->
-    <div>
+      </tr>
+      <!-- <div style="float: right; margin-right: -147%;"> -->
+      <div>
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
-</table>
-</div>
-<div *ngIf="empDetails">
-  <div>Employee Details</div>
-  <div>
-    <div>
-      <div>Name</div>
-      <div><input type="text">{{employee.name}}</div>
+      </div>
+    </table>
+  </div>
+  <div *ngIf="empDetails" class="emp-details">
+    <div>Employee Details</div>
+    <div style="display: grid;">
+      <div class="empDetail">
+        <div>Name</div>
+        <div class="empValue"><input type="text" value="{{employee.name}}"></div>
+      </div>
+      <br />
+
+      <div class="empDetail">
+        <div>D.O.B</div>
+        <div class="empValue"><input type="text" value="{{employee.dob}}"></div>
+      </div>
+      <br />
+
+      <div class="empDetail">
+        <div>Salary</div>
+        <div class="empValue"><input type="text" value="{{employee.salary}}"></div>
+      </div>
+      <br />
+
+      <div class="empDetail">
+        <div>Skills</div>
+        <div class="empValue"><input type="text" value="{{employee.skills}}"></div>
+      </div>
+      <br />
     </div>
   </div>
-</div>
