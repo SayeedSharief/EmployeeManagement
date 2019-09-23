@@ -40,7 +40,7 @@ db.once('open', function () {
 app.get('/getEmployees', (req, res) => {
     Employee.find(function (err, employees) {
         if (err) return console.error(err);
-        console.log('Employee =', employees);
+        // console.log('Employee =', employees);
         res.json(employees)
     })
 })
@@ -59,10 +59,9 @@ app.get('/getEmployee/:name', (req, res) => {
     console.log('Emp Obj =', emp)
     emp.save(function (err, emp) {
         if (err) return console.error(err);
-        // fluffy.speak();
         console.log('Successfully Inserted Employee')
+        res.json({'res':'Success'})
     });
-    res.json({'res':'Success'})
 })
 
 app.post('/updateEmployee', (req, res) => {
@@ -74,6 +73,17 @@ app.post('/updateEmployee', (req, res) => {
         res.json({'res':'Success'})
     })
 })
+
+app.get('/deleteEmployee/:name', (req, res) => {
+    console.log('Delete object =', req.params.name);
+    Employee.deleteOne({name: req.params.name}, err => {
+        if(!err){
+            res.json({
+                "result":"Delete Success"
+            })
+        }
+    })
+}) 
 
 app.listen(3000, () => {
     console.log("Express listening on port 3000")

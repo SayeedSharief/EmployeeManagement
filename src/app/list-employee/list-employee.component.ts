@@ -49,7 +49,12 @@ export class ListEmployeeComponent implements OnInit {
 
   deleteEmployee(name){
     console.log('Delete Employee, name =', name)
+    let url = 'http://localhost:3000/deleteEmployee/' + name;
 
+    this.httpClient.get(url).subscribe(res => {
+      console.log(res);
+      window.location.reload();
+    })
   }
 
   editEmployeeDetail(){
@@ -65,11 +70,6 @@ export class ListEmployeeComponent implements OnInit {
       console.log('Updated Successfully, res =',res);
       this.router.navigate(['/getEmployeed']);
       window.location.reload();
-      location.reload();
     })
-  }
-
-  onSubmit(customerData) {
-
   }
 }
