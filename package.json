@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"nodemon server/server.js\" \"ng serve\"",
+    "start": "concurrently \"nodemon server/server.js\" \"ng serve--port 11412 --host 0.0.0.0 --disableHostCheck true\"",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

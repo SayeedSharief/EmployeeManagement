@@ -28,7 +28,7 @@ app.use(cors())
 const Employee = require('./schema/Employee')
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/employee', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/employee', { useNewUrlParser: true });
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -85,6 +85,6 @@ app.get('/deleteEmployee/:name', (req, res) => {
     })
 }) 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Express listening on port 3000")
 })
